@@ -1,0 +1,536 @@
+*:not(#waybar) {
+    border: none;
+    border-radius: 8px;
+    font-family: "Fira Sans";
+    font-size: 12px;
+  }  
+
+@import "./themes/mocha.css";
+
+
+window#waybar {
+    background: transparent;
+  }
+
+window#waybar.hidden {
+    opacity: 0.2;   
+}
+
+window#waybar {
+    background: rgba(11,11,27,0.9);
+    background: linear-gradient(180deg, rgba(11,11,27,1) 0%, rgba(18,18,25,0.9) 100%);
+
+    /* background: rgb(6,6,10);
+    background: linear-gradient(180deg, rgba(6,6,10,1) 0%, rgba(17,18,22,0.860364214044993) 7%, rgba(27,27,32,0) 58%);  */
+    /* border-radius: 15px; */
+  /*  border: 2px solid #124323; */
+
+ }
+
+#window {
+margin-top: 6px;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 10px;
+transition: none;
+color: transparent;
+background: transparent;
+}
+
+#tooltip {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Inter";
+    background: @mantle;
+    color: @text;
+    border-radius: 17px;
+}
+
+/* window#waybar {
+  	transition-property: background-color;
+  	transition-duration: 0.5s;
+  	background: transparent;
+  	border-radius: 10px;
+}
+
+window#waybar.hidden {
+  	opacity: 0.2;
+}
+
+window#waybar.empty,
+window#waybar.empty #window {
+    background-color: transparent;
+    padding: 0px;
+    border: 0px;
+} */
+
+                           
+/*
+ __      _____  _ __| | _____ _ __   __ _  ___ ___ 
+\ \ /\ / / _ \| '__| |/ / __| '_ \ / _` |/ __/ _ \
+ \ V  V / (_) | |  |   <\__ \ |_) | (_| | (_|  __/
+  \_/\_/ \___/|_|  |_|\_\___/ .__/ \__,_|\___\___|
+                            |_|                    
+*/
+
+
+#workspaces {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    margin-left: 19px;
+    margin-right: 10px;
+    padding-right: 25;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 0 0 25 0;
+    background: rgb(137,220,235);
+    background: linear-gradient(132deg, rgba(137,220,235,1) 0%, rgba(137,180,250,1) 100%);
+    /* border-radius: 15px;
+    border: 2px solid #CBA6F7; */
+}
+
+#workspaces button {
+	color: @surface0;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    padding-left: 12px;
+    padding-right: 0px;
+    /* animation: gradient_f 20s ease-in infinite; */
+    /* transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682); */
+}
+
+#workspaces button:hover,
+#workspaces button.active:hover {
+    margin-bottom: 6px;
+    color: @rosewater;
+    border-radius: 9px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.15s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+}
+
+
+#workspaces button.active {
+	color: #000000;
+  	border-radius: 9px;
+    padding-left: 12px;
+    padding-right: 0px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.29s ease-in-out;
+}
+
+#workspaces button.urgent {
+	color: @red;
+ 	border-radius: 0px;
+}
+
+
+/*
+  _            _    _               
+| |_ __ _ ___| | _| |__   __ _ _ __ 
+| __/ _` / __| |/ / '_ \ / _` | '__|
+| || (_| \__ \   <| |_) | (_| | |   
+ \__\__,_|___/_|\_\_.__/ \__,_|_|  
+
+ */
+
+
+#taskbar button {
+    background-color: transparent;
+    margin-top: 2px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    border-top: 2px solid rgba(205, 214, 244, 0.7);
+    padding: 0px;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-right: 12px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+#taskbar button:hover,
+#taskbar button.active:hover {
+	color: @lavender;
+	background-color: @rosewater;
+    padding-left: 16px;
+    padding-right: 18px;
+    border-radius: 9px;
+}
+
+#taskbar button.active {
+    background-color: @text;
+    padding-left: 20px;
+    padding-right: 22px;
+    border-radius: 9px;
+    margin-top: 6px;
+    border-top: 2px solid rgba(205, 214, 244, 0);
+}
+
+
+
+
+/*
+
+ _                   
+| |_ _ __ __ _ _   _ 
+| __| '__/ _` | | | |
+| |_| | | (_| | |_| |
+ \__|_|  \__,_|\__, |
+               |___/ 
+
+*/
+
+
+#tray * {
+    background-color: @mantle;
+    color: @text;
+}
+
+#tray menu menuitem * {
+    background-color: transparent;
+    color: @text;
+}
+
+#tray menu menuitem {
+    background-color: @mantle;
+    color: @text;
+}
+
+#tray menu menuitem:hover {
+    background-color: @surface0;
+    color: @subtext;
+}
+
+#tray menu * {
+    min-height: 16px;
+    font-weight: normal;
+    color: @text;
+}
+
+#tray menu separator {
+    min-height: 10px
+}
+
+#tray.passive {
+    background: transparent;
+}
+
+
+
+
+
+#custom-spacer{
+opacity: 0.0;
+}
+
+
+#custom-mouse{
+font-size: 14px;
+margin-top: 6px;
+margin-bottom: 6px;
+background:  #161320;
+}
+
+#custom-menu{
+font-size: 14px;
+margin-top: 6px;
+margin-bottom: 6px;
+}
+
+#custom-power{
+    font-size: 15px;
+    color: #FFFFFF;
+    background:  rgba(22, 19, 32, 0.0);
+    padding-left: 4px;
+    padding-right: 0px;
+    margin-top: 6px;
+    margin-bottom: 9px;
+    }
+
+#backlight{
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+    background:  rgba(22, 19, 32, 0.9);
+    opacity: 1;
+    margin-top: 6px;
+    margin-bottom: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+ 
+}
+#bluetooth,
+#custom-cliphist{
+    color: #E6E7E7;
+    background:  #161320;
+    opacity: 1;
+    margin: 4px 0px 4px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+ 
+}
+#battery{
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    background:  transparent;
+    opacity: 1;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-left: 1px;
+    margin-right: 0px;
+}
+
+
+#idle_inhibitor{
+color: #24966e;
+background: @bar-bg;
+    opacity: 1;
+    margin: 4px 0px 4px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+}
+#clock{
+    color: @crust;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Arimo Nerd Font";
+    background: rgb(245,194,231);
+    background: linear-gradient(90deg, rgba(245,194,231,1) 0%, rgba(203,166,247,1) 100%); 
+    border-radius: 0 0 0 25;
+    opacity: 1;
+    margin: 0px 0px 8px 0px;
+    padding-left: 20px;
+    padding-right: 10px;
+    border: none;
+    /* border-radius: 15px;c
+    border: 2px solid #CBA6F7; */
+}
+
+#clock:hover {
+    background: @flamingo;
+}
+
+#pulseaudio {
+font-weight: bold;
+color: @green;
+background:  transparent;
+opacity: 1;
+margin: 6px 0px 6px 0px;
+padding-left: 4px;
+padding-right: 4px;
+}
+
+#network {
+    border-radius: 5px;
+    color: @peach;
+    margin-right: 2px;
+    padding-left: 3px;
+}
+
+#network:hover {
+    color: @yellow;
+    border-bottom: 2px solid @yellow;
+}
+
+#custom-notification {
+    margin-top: 3px;
+    margin-left: 4px;
+    padding-bottom: 3px;
+    font-family: "Fira Sans";
+    color: @maroon;
+    padding-right: 7px;
+    padding-left: 7px;
+    margin-right: 5px;
+}
+
+#custom-notification:hover {
+    color: @mauve;
+    border-bottom: 2px solid @mauve;
+}
+
+#custom-spotify,
+
+/* #taskbar {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    background: @mantle;
+}, */
+
+#custom-theme,
+#tray,
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#window,
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#cava,
+#custom-rr_end {
+font-weight: normal;
+    color: #c8a1cf;
+    background:  #171717;
+    opacity: 1;
+    margin: 6px 0px 6px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+  ;
+    
+}
+
+#battery {
+    border-radius: 20px;
+    color: @yellow;
+    margin-bottom: 7;
+    padding-bottom: 0px;
+    padding-left: 5px;
+}
+
+#battery.charging, #battery.plugged {
+	color: #77e093;
+}
+
+#battery.critical:not(.charging) {
+    color: #161320;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery:hover {
+    color: @teal;
+}
+
+@keyframes blink {
+    to {
+        color: #eb521e;
+    }
+}
+
+#custom-r_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 1px;
+    padding-right: 3px;
+}
+
+#custom-l_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 1px;
+    padding-left: 3px;
+}
+
+#custom-sr_end {
+    border-radius: 0px;
+    margin-right: 1px;
+    padding-right: 3px;
+}
+
+#custom-sl_end {
+    border-radius: 0px;
+    margin-left: 1px;
+    padding-left: 3px;
+}
+
+#custom-rr_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 1px;
+    padding-right: 3px;
+}
+
+#custom-rl_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 1px;
+    padding-left: 3px;
+}
+
+#custom-exit {
+    margin-top: 6px;
+    margin-bottom: 8px;
+
+}
+
+#pulseaudio-slider * {
+    min-width: 40px;
+    color: @peach;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider slider {
+    min-width: 20px;
+    color: #000000;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    color: @peach;
+    min-height: 5px;
+    min-width: 10px;
+    border-radius: 20px;
+    background-color: @crust;
+}
+#pulseaudio-slider highlight {
+    color: @text;
+    min-width: 5px;
+    border-radius: 20px;
+    background-color: @text;
+}
+
+#system {
+    margin-top: 0px;
+    margin-bottom: 3px;
+    border-radius: 10;
+    background: @base;
+}
+
+
+#audio {
+    background: @base;
+    border-radius: 10;
+}
+
+#custom-exit:hover {
+    color: @crust;
+    background: @red;
+    padding: 5 11 5 11;
+    border-radius: 20 20 20 20;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+/*
+        _                     _                         
+__ __ (_)_ __  _ __   ___  __| |   __ _ _ __  _ __  ___ 
+| '_ \| | '_ \| '_ \ / _ \/ _` |  / _` | '_ \| '_ \/ __|
+| |_) | | | | | | | |  __/ (_| | | (_| | |_) | |_) \__ \
+| .__/|_|_| |_|_| |_|\___|\__,_|  \__,_| .__/| .__/|___/
+|_|                                    |_|   |_|         
+
+*/
+
+#custom-shortcut {
+    color: @text;
+    padding-left: 5px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.29s ease-in-out;
+}
+
+#custom-shortcut:hover {
+    background: rgba(245,224,220,0.2);
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @blue;
+}
+
