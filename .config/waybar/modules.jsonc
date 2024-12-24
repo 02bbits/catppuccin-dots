@@ -1,0 +1,482 @@
+{   
+    // =============== GROUPS =====================
+    "group/audio": {
+        "max-width": 60,
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "pulseaudio",
+            "transition-left-to-right": true
+            },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#microphone",
+            "pulseaudio/slider"
+        ]
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": ["custom/padd1", "battery", "custom/padd1", "network", "custom/notification"]
+    },
+
+    "group/expand#1": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 100,
+            "children-class": "not-power",
+            "transition-left-to-right": true,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/menu","tray"]
+    },
+
+    "group/systeminfo": {
+        "orientation": "horizontal",
+        "modules": ["cpu", "custom/padd", "memory", "custom/padd", "temperature"]
+    },
+        
+
+    // ==================== WORKSPACES ======================
+    "hyprland/workspaces#minimal": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "show-special": false,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format-icons": {
+                "active": "<span font='13'>󰄯</span>",
+                "empty": "<span font='6'>󰄯</span>"
+        }
+    },
+        
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "show-special": false,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format-icons": {
+                "active": "<span font='12'>󰄯</span>",
+                "empty": "<span font='6'>󰄯</span>",
+                "default": "<span font='9'></span>"
+        }
+    },
+
+    "hyprland/workspaces#line": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "show-special": false,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format-icons": {
+                "active": "　",
+                "empty": "　",
+                "default": "　"
+        }
+    },
+
+
+    // =============== NOTIFICATION ==============
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span font='10'>󰂞 </span>",
+            "none": "<span font='10'>  </span>",
+            "dnd-notification": "<span font='10'>󱏫 </span>",
+            "dnd-none": "<span font='10'>󱏫 </span>",
+            "inhibited-notification": "<span font='10'>󰂞 </span>",
+            "inhibited-none": "<span font='10'> </span>",
+            "dnd-inhibited-notification": "<span font='10'>󱏫 </span>",
+            "dnd-inhibited-none": "<span font='10'>󱏫 </span>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click-right": "swaync-client -d -sw",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+        },
+        
+        "hyprland/window": {  
+    //"format": "{}"   // <--- these is the default value  
+    "format": "<span  weight='bold' >{}</span>",
+        "max-length": 13
+    },
+        
+
+    // ============= TASKBAR ====================
+    "wlr/taskbar": {
+        "format": " {icon}",
+        "rotate": 0,
+        "icon-size": 17,
+        "icon-theme": "Tela-circle-dracula",
+        "spacing": 0,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty",
+            "kitty"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        }
+    },
+
+
+    // ===================== CLOCK ===========================
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "rotate": 0,
+        "on-click-right": "gnome-calendar",
+        "format-alt": "{:%A, %B %d, %Y}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "clock#date": {
+        "format": "{:%d.%m.%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+
+    // ======================= BATTERY =========================
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%   ",
+        "rotate": 0,
+        "format-charging": "<span font='12'>󰂄</span> {capacity}%   ", 
+        "format-plugged": "<span font='12'>󰂄</span> {capacity}%   ",
+        //"format-icons": ["","","","",""],  
+            "format-icons": [" 󰂎 ", " 󰁺 ", " 󰁻 ", " 󰁼 ", " 󰁽 ", " 󰁾 ", " 󰁿 ", " 󰂀 ", " 󰂁 ", " 󰂂 ", " 󰁹 "],
+        "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
+        "on-update": "$HOME/.scripts/batteryStatusNotify.sh"
+        //  "format-icons": ["<i class='fa-solid fa-battery-full'></i>"],
+    
+    },
+
+    
+    // ====================== MISC ===============================
+    "backlight": {
+        "device": "intel_backlight",
+        "rotate": 0,
+        "format": "{icon}",
+        "format-alt": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click-right": "m8mouse -dpi 1 -led 2 -speed 4",
+        "on-click-middle": "m8mouse -dpi 1 -led 7 -speed 4",
+        "scroll-step": 1,
+        "min-length": 2
+    },
+    
+    "cava": {
+        "cava_config": "~/.config/cava/config",
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                    "on-click-right": "mode"
+                    }
+    },
+
+    "custom/script": {
+        "on-click": "~/.config/waybar/volume.sh toggle",
+        "format": ""
+        
+        },
+
+        "custom/cliphist": {
+            "format": "{}",
+            "rotate": 0,
+            "exec": "echo ; echo 󰅇 clipboard history",
+            "on-click": "sleep 0.1 && cliphist.sh c",
+            "on-click-right": "sleep 0.1 && cliphist.sh d",
+            "on-click-middle": "sleep 0.1 && cliphist.sh w",
+            "interval" : 86400,
+            "tooltip": true
+        },
+
+    "custom/wbar": {
+        "format": "𐌏{}",
+        "rotate": 0,
+        "exec": "echo ; echo show app menu",
+        "on-click": "wofi --show drun",
+        "on-click-right": "wbarconfgen.sh p",
+        "on-click-middle": "sleep 0.1 && quickapps.sh kitty firefox spotify code dolphin",
+        "interval" : 86400,
+        "tooltip": true
+    },
+
+    "custom/theme": {
+        "format": "{}",
+        "rotate": 0,
+        "exec": "echo ; echo 󰟡 pick color",
+        "on-click": "hyprpicker",
+        "on-click-right": "themeswitch.sh -p",
+        "on-click-middle": "sleep 0.1 && themeselect.sh",
+        "interval" : 86400, // once every day
+        "tooltip": true
+    },
+
+    "custom/wallchange": {
+        "format": "{}",
+        "rotate": 0,
+        "exec": "echo ; echo 󰆊 switch wallpaper",
+        "on-click": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/skyway.jpg",
+        "on-click-right": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/cloud.png",
+        "on-click-middle": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/gradient.jpg",
+        "on-scroll-up": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/torvalds.png",
+        "on-scroll-down": "swww img --transition-type grow --transition-pos 0.071,0.988 --transition-step 255 --transition-fps 60 /home/anik/Downloads/night.png",
+        "interval" : 86400, // once every day
+        "tooltip": true
+    },
+
+    "custom/mouse":
+    { 
+        "format": "",
+        "format-alt": "",
+            
+        "on-click": "m8mouse -dpi 1 -led 2 -speed 4",
+        "on-click-right": "m8mouse -dpi 1 -led 4 -speed 4",
+        "on-click-middle": "m8mouse -dpi 1 -led 7 -speed 4",
+        "tooltip": true 
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+
+    "custom/spotify": {
+        "exec": "mediaplayer.py --player spotify",
+        "format": " {}",
+        "rotate": 0,
+        "return-type": "json",
+        "on-click": "playerctl play-pause --player spotify",
+        "on-click-right": "playerctl next --player spotify",
+        "on-click-middle": "playerctl previous --player spotify",
+        "on-scroll-up": "volumecontrol.sh -p spotify i",
+        "on-scroll-down": "volumecontrol.sh -p spotify d",
+        "max-length": 25,
+        "escape": true,
+        "tooltip": true
+    },
+
+
+    // ==================== NETWORK ==========================
+    "network": {
+        "tooltip": true,
+        "format-wifi": "<span font='10'> </span> {essid} ({signalStrength}%)",
+        //  "format-wifi": "<i class='fa-solid fa-wifi-slash'></i>",
+        "rotate": 0,
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "   Disconnected",
+        "tooltip-format-disconnected": "Disconnected",
+        // "on-click": "$HOME/.scripts/waybar/wifiConnectMenu.sh",
+        "interval": 2
+    },
+
+
+    // ================= AUDIO ======================
+    "pulseaudio": {
+        "format": "  {icon}    {volume}%  ",
+        "format-bluetooth": "{icon} 󰂰 {volume}%",
+        "format-muted": "<span font='11'> 󰸈</span>   {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "", 
+            "default": [
+                "<span font='10'>󰕿</span>", "<span font='10'>󰖀</span>", "<span font='10'></span>"
+            ]
+            
+        },
+
+        "on-click-right": "bash $HOME/.config/waybar/scripts/toggleSound.sh",
+        "scroll-step": 5.0,
+        "smooth-scrolling-threshold": 1
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "device": "pulseaudio",
+        "orientation": "horizontal",
+        "scroll-step": 1
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "rotate": 0,
+        "format-source": "<span font='12'>󰍬</span>", 
+        "format-source-muted": "<span font='12'>󰍭</span>",
+        "on-click-right": "bash $HOME/.config/waybar/scripts/toggleMic.sh",
+        "tooltip-format": "󰍬 {source_desc} | {source_volume}%",
+        "scroll-step": 5
+    },
+
+
+    // ================= SYSTEM INFO ===============
+    "memory": {
+	"interval": 30,
+	"format": " {used:0.1f}G"
+    },
+
+    "cpu": {
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3}  {usage:>2}%",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip-format": "{used:0.1f}G/{total:0.1f}G"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+        // "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": " {temperatureC}°C"
+    },
+
+        
+    // =================== TRAY ==================
+    "tray": {
+        "icon-size": 16,
+        "rotate": 0,
+        "spacing": 3
+    },
+
+    "custom/menu":{
+        "tooltip": false,
+        "format": ""
+    },
+
+
+    // ================ PADDING ========================
+    "custom/padd": {
+        "format": "  ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/padd1": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+
+    // ================ LAUNCHER ========================
+    "custom/shortcut#1": {
+        "format": "{}     ",
+        "tooltip": true,
+        "tooltip-format": "  Kitty  ",
+        "on-click": "kitty",
+        "on-click-right": "alacritty"
+    },
+
+    "custom/shortcut#2": {
+        "format": "{}    ",
+        "tooltip": true,
+        "tooltip-format": "  Floorp  ",
+        "on-click": "flatpak run one.ablaze.floorp",
+        "on-click-right": "firefox"
+    },
+
+    "custom/shortcut#3": {
+        "format": "{}  　 " ,
+        "tooltip": true,
+        "tooltip-format": "  Discord  ",
+        "on-click": "~/Applications/Discord/Discord"
+    },
+
+    "custom/shortcut#4": {
+        "format": "{}  󰎚  ",
+        "tooltip": true,
+        "tooltip-format": "  Obsidian  ",
+        "on-click": "/home/bb02/Applications/Obsidian/Obsidian-1.6.7.AppImage"
+    },
+
+    "custom/shortcut#6": {
+        "format": "{}  󰨞  ",
+        "tooltip": true,
+        "tooltip-format": "  Visual Studio Code  ",
+        "on-click": "code"
+    },
+
+    "custom/shortcut#5": {
+        "format": "{}  ",
+        "tooltip": true,
+        "tooltip-format": "Music",
+        "on-click": "kitty"
+    }
+}

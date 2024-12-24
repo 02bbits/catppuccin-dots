@@ -1,0 +1,230 @@
+*:not(#waybar) {
+    border: none;
+    border-radius: 8px;
+    font-family: "FiraCode Nerd Font";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@import "./themes/mocha.css";
+
+
+/* ===================== BAR ========================== */
+window#waybar {
+    /* background: @crust; */
+    background: rgba(11,11,27,0.75);
+    border-radius: 12px;
+    border: 2px solid rgba(137, 180, 255, 1);
+}
+
+
+/* ==================== WORKSPACE ==================== */
+#workspaces button {
+    color: @overlay2;
+    border-radius: 50%;
+    margin: 0px 0px;
+    padding: 0px 8px 0px 4px;
+}
+
+#workspaces button:hover {
+    color: @mauve;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button:hover * {
+    color: @mauve;
+    background-color: @base;
+}
+
+#workspaces button.active {
+    color: @text;
+}
+
+#workspaces {
+    border-style: solid;
+    background-color: transparent;
+    border-radius: 10px;
+    margin: 7px 0px 7px 8px;
+}
+
+
+/* ==================== CLOCK ======================== */
+#clock {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+/* ==================== AUDIO ============== */
+#pulseaudio {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 12px; 
+    margin: 0;
+    /* border-top: 2px solid @sky; */
+    border-radius: 4px;
+    color: @sky
+}
+
+
+/* ==================== BATTERY ================= */
+#battery {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 12px;
+    /* border-top: 2px solid @green; */
+    border-radius: 4px;
+    color: @green
+}
+
+
+/* ==================== NETWORK ================ */
+#network {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 12px;
+    /* border-top: 2px solid @lavender; */
+    border-radius: 4px;
+    color: @lavender;
+}
+
+
+/* =================== NOTIFICATION =========== */
+#custom-notification {
+    padding: 0 12 0 0;
+    background: transparent;
+    border-radius: 25;
+}
+
+/* =================== Status animation ========= */ 
+#network:hover {
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @lavender;
+}
+
+#battery:hover {
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @green;
+}
+
+#pulseaudio:hover {
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @sky;
+}
+/* ==================== SYSTEM INFO ================== */
+#systeminfo {
+    margin: 0 10 0 20;
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 12px;
+    /* border-top: 2px solid @red; */
+    border-radius: 4px;
+}
+
+#cpu {
+    color: @yellow;
+}
+
+#memory {
+    color: @flamingo;
+}
+
+#temperature {
+    color: @pink;
+}
+
+/* ============== Systeminfo animation ====*/
+#cpu:hover {
+    animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @yellow;
+}
+
+#memory:hover {
+    animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @flamingo;
+}
+
+#temperature:hover {
+    animation: gradient_f 20s ease-in infinite;
+  transition: all 0.1s cubic-bezier(.55,-0.68,.48,1.682), background-color 0.1s ease-in-out;
+  padding: 0 0 3 0;
+  border-bottom: 2px solid @pink;
+}
+
+/* ============== TOOLTIP ================= */
+#tooltip {
+    font-size: 14px;
+    font-family: "Inter";
+    font-weight: bold;
+    background: @base;
+    color: @text;
+    border-radius: 17px;
+}
+
+
+*:not(#waybar) {
+    border-radius: 3px;
+}
+
+
+/* =============== TRAY ==================== */
+#tray * {
+  font-family: "Inter";
+  font-weight: bold;
+}
+
+#tray image {
+  background-color: transparent;
+}
+
+#tray menu * {
+  background-color: transparent;
+}
+
+#tray menu {
+  background-color: @mantle;
+}
+
+#tray window {
+  background-color: transparent;
+}
+
+#tray icon * {
+  background-color: transparent;
+}
+
+#tray menu menuitem * {
+  background-color: transparent;
+}
+
+#tray menu menu {
+  background-color: @mantle
+}
+
+#tray menu menuitem {
+    background-color: @mantle;
+    color: @text;
+}
+
+#tray menu menuitem:hover {
+    background-color: @surface0;
+    color: @subtext;
+}
+
+#tray menu separator {
+    min-height: 10px;
+    background: @mantle;
+}
+
