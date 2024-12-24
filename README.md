@@ -1,16 +1,16 @@
 # catppuccin-dots
 
-## dotfiles for Hyprland
+Yet another Catppuccin Hyprland dots with many stolen dots combined
 
-## dotfiles include:
+## this dotfiles include:
 
-- hyprland
+- hyprland (WM)
 - wlogout
-- nvim
-- cava
-- waybar
-- tmux
-- swaync
-- kitty
-- rofi
+- nvim (code-editor)
+- cava (audio visualizer)
+- waybar (status bar)
+- tmux (tmux)
+- swaync (notification daemon)
+- kitty (terminal)
+- rofi (launcher)
 - fastfetch
