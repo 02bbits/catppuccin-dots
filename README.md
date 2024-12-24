@@ -1,2 +1,16 @@
 # catppuccin-dots
-dotfile for hyprland + waybar + nvim + kitty and more
+
+## dotfiles for Hyprland
+
+## dotfiles include:
+
+- hyprland
+- wlogout
+- nvim
+- cava
+- waybar
+- tmux
+- swaync
+- kitty
+- rofi
+- fastfetch
