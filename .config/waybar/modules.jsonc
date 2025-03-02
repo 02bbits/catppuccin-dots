@@ -346,18 +346,18 @@
 
     // ================= AUDIO ======================
     "pulseaudio": {
-        "format": "  {icon}    {volume}%  ",
-        "format-bluetooth": "{icon} 󰂰 {volume}%",
-        "format-muted": "<span font='11'> 󰸈</span>   {volume}%",
+        "format": "  {icon}  {volume}%  ",
+        "format-bluetooth": "󰂰  {volume}%",
+        "format-muted": "<span font='12'> 󰸈</span>   {volume}%",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "", 
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ", 
             "default": [
-                "<span font='10'>󰕿</span>", "<span font='10'>󰖀</span>", "<span font='10'></span>"
+                "<span font='12'>󰕿</span>", "<span font='12'>󰖀</span>"
             ]
             
         },

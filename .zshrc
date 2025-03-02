@@ -113,18 +113,34 @@ HISTSIZE=10000
 alias hv="nvim $HOME/.config/hypr/hyprland.conf"
 alias ff="fastfetch --logo $HOME/.config/fastfetch/ascii.txt --logo-position top --logo-padding 0 --logo-padding-top 0"
 alias zshconf="nvim ~/.zshrc"
-alias ls='eza -a --icons auto'
+alias ls='eza -a --icons auto -s type'
 alias ll='eza -al --icons auto'
 alias lt='eza -a --tree --level=1 --icons'
 alias l='eza --icons auto'
-alias py='python'
 alias ya='yazi'
+alias cbackup='sudo timeshift --create --comments $1'
+alias lbackup='sudo timeshift --list'
+alias daily='bash $HOME/dailyflow.sh'
+alias py='python'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /home/bb02/Repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias fk)
 export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH=$PATH:~/.cargo/bin/
+
+# Custom bind
+
+# Function to copy the current command line to clipboard
+copy_line_to_clipboard() {
+    print -rn -- "$BUFFER" | xsel --clipboard --input
+    BUFFER=""
+}
+
+# Bind the function to a key combination (e.g., Ctrl+c)
+zle -N copy_line_to_clipboard
+bindkey '^u' copy_line_to_clipboard
