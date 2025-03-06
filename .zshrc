@@ -120,8 +120,9 @@ alias l='eza --icons auto'
 alias ya='yazi'
 alias cbackup='sudo timeshift --create --comments $1'
 alias lbackup='sudo timeshift --list'
-alias daily='bash $HOME/dailyflow.sh'
+alias daily='bash $HOME/.scripts/dailyflow.sh'
 alias py='python'
+alias lsf='ls|fzf'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -144,3 +145,4 @@ copy_line_to_clipboard() {
 # Bind the function to a key combination (e.g., Ctrl+c)
 zle -N copy_line_to_clipboard
 bindkey '^u' copy_line_to_clipboard
+bindkey '^ ' autosuggest-accept

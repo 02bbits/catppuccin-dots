@@ -35,7 +35,6 @@ notify_user() {
         notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$(get_icon)" "Volume: Muted"
     else
         notify-send -e -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -u low -i "$(get_icon)" "Volume: $(get_volume)"
-        "$sDIR/Sounds.sh" --volume
     fi
 }
 
@@ -44,7 +43,7 @@ inc_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
         toggle_mute
     else
-        pamixer -i 5 --allow-boost --set-limit 150 && notify_user
+        pamixer -i 2 --allow-boost --set-limit 150 && notify_user
     fi
 }
 
@@ -53,25 +52,25 @@ dec_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
         toggle_mute
     else
-        pamixer -d 5 && notify_user
+        pamixer -d 2 && notify_user
     fi
 }
 
 # Toggle Mute
 toggle_mute() {
 	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -e -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
+		pamixer -m && notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
 	elif [ "$(pamixer --get-mute)" == "true" ]; then
-		pamixer -u && notify-send -e -u low -i "$(get_icon)" "Volume Switched ON"
+		pamixer -u && notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$(get_icon)" "Volume Switched ON"
 	fi
 }
 
 # Toggle Mic
 toggle_mic() {
 	if [ "$(pamixer --default-source --get-mute)" == "false" ]; then
-		pamixer --default-source -m && notify-send -e -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
+		pamixer --default-source -m && notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
 	elif [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-		pamixer -u --default-source u && notify-send -e -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
+		pamixer -u --default-source u && notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
 	fi
 }
 # Get Mic Icon
@@ -106,7 +105,7 @@ inc_mic_volume() {
     if [ "$(pamixer --default-source --get-mute)" == "true" ]; then
         toggle_mic
     else
-        pamixer --default-source -i 5 && notify_mic_user
+        pamixer --default-source -i 1 && notify_mic_user
     fi
 }
 
@@ -115,7 +114,7 @@ dec_mic_volume() {
     if [ "$(pamixer --default-source --get-mute)" == "true" ]; then
         toggle-mic
     else
-        pamixer --default-source -d 5 && notify_mic_user
+        pamixer --default-source -d 1 && notify_mic_user
     fi
 }
 
@@ -141,3 +140,4 @@ elif [[ "$1" == "--mic-dec" ]]; then
 else
 	get_volume
 fi
+
