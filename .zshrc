@@ -146,3 +146,6 @@ copy_line_to_clipboard() {
 zle -N copy_line_to_clipboard
 bindkey '^u' copy_line_to_clipboard
 bindkey '^ ' autosuggest-accept
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
